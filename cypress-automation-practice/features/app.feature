@@ -3,7 +3,7 @@ Funcionalidade: login no sistema
 Cenário: Login falho com senha inválida
     Dado que o usuário está na página de sign in
     Quando o usuário insere um e-mail válido "email@valido.com" no campo "Email address" em "Already registered?"
-    E usuário insere uma senha inválida "senhaInvaida"
+    E insere uma senha inválida "senhaInvaida"
     E clica no botão "Sign in"
     Então vê a mensagem "Authentication failed."
     E permanece na página de sign in
@@ -23,5 +23,5 @@ Cenário: Recuperar senha com email não cadastrado
     Dado que o usuário está na página de Forgot your password?
     Quando o usuário insere um email não cadastrado "emailnaocadastrado@exemplo.com"
     E clica no botão "Retrieve Password"
-    Então uma mensagem de erro é exibida "This email address is not registered."
+    Então uma mensagem de erro é exibida "There is no account registered for this email address."
     E permanece na página de recuperação de senha

@@ -28,7 +28,7 @@ describe('Criar uma conta', () => {
         it(`Quando o usuário insere um email já cadastrado "${input.emailAdress}" no campo "Email address" em "Create an account"`, () => {
             loginForm.typeEmailAdress(input.emailAdress)
         })
-        it(`Então clica no botão "Create an account"`, () => {
+        it(`E clica no botão "Create an account"`, () => {
             loginForm.clickSignIn()
         })
         it(`Então vê a mensagem "An account using this email address has already been registered. Please enter a valid password or request a new one. "`, () => {
