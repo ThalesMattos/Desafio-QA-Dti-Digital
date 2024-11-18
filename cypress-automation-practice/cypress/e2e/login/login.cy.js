@@ -32,7 +32,7 @@ describe('login no sistema', () => {
         it('Dado que o usuário está na página de sign in', () => {
             cy.visit('/')
         });
-        it(`Quando o usuário insere um e-mail válido "${input.emailAdress}" no campo "Email adress" em "Already registered?"`, () => {
+        it(`Quando o usuário insere um e-mail válido "${input.emailAdress}" no campo "Email address" em "Already registered?"`, () => {
             loginForm.typeEmailAdress(input.emailAdress)
         })
         it(`E insere uma senha inválida "${input.password}"`, () => {

@@ -31,8 +31,8 @@ describe('Esqueceu a senha ?', () => {
         it(`E clica no botão "Retrieve Password"`, () => {
             loginForm.clickSignIn()
         })
-        it(`Então uma mensagem de erro é exibida "There is no account registered for this email adress."`, () => {
-            loginForm.elements.authFeedback().should('contains.text', 'There is no account registered for this email adress.')
+        it(`Então uma mensagem de erro é exibida "There is no account registered for this email address."`, () => {
+            loginForm.elements.authFeedback().should('contains.text', 'There is no account registered for this email address.')
         })
         it(`E permanece na página de recuperação de senha`, () => {
             cy.url().should('include', '/index.php?controller=password');
