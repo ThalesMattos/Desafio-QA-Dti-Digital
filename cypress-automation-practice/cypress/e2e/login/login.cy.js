@@ -1,14 +1,14 @@
 class LoginForm{
     elements = {
-        emailAdressInput: () => cy.get('#email'),
+        emailAddressInput: () => cy.get('#email'),
         passwordInput: () => cy.get('#passwd'),
         submitButton: () => cy.get('#SubmitLogin'),
         authFeedback: () => cy.get('.alert.alert-danger ol li')
     }
 
-    typeEmailAdress(text){
+    typeEmailAddress(text){
         if(!text) return;
-        this.elements.emailAdressInput().type(text)
+        this.elements.emailAddressInput().type(text)
     }
 
     typePassword(text){
@@ -26,14 +26,14 @@ describe('login no sistema', () => {
             cy.clearAllLocalStorage()
         });
         const input = {
-            emailAdress: 'email@valido.com',
+            emailAddress: 'email@valido.com',
             password: 'senhaInvaida'
         }
         it('Dado que o usuário está na página de sign in', () => {
             cy.visit('/')
         });
-        it(`Quando o usuário insere um e-mail válido "${input.emailAdress}" no campo "Email address" em "Already registered?"`, () => {
-            loginForm.typeEmailAdress(input.emailAdress)
+        it(`Quando o usuário insere um e-mail válido "${input.emailAddress}" no campo "Email address" em "Already registered?"`, () => {
+            loginForm.typeEmailAddress(input.emailAddress)
         })
         it(`E insere uma senha inválida "${input.password}"`, () => {
             loginForm.typePassword(input.password)
@@ -47,7 +47,7 @@ describe('login no sistema', () => {
         it(`E permanece na página de sign in`, () => {
             cy.url().should('include', '/index.php?controller=authentication');
 
-            loginForm.elements.emailAdressInput().should('be.visible');
+            loginForm.elements.emailAddressInput().should('be.visible');
         })
     });
 });

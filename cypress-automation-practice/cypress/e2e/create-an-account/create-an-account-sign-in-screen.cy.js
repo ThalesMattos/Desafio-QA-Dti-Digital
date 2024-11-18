@@ -1,13 +1,13 @@
 class LoginForm{
     elements = {
-        emailAdressInput: () => cy.get('#email_create'),
+        emailAddressInput: () => cy.get('#email_create'),
         submitButton: () => cy.get('#SubmitCreate'),
         authFeedback: () => cy.get('#create_account_error')
     }
 
-    typeEmailAdress(text){
+    typeEmailAddress(text){
         if(!text) return;
-        this.elements.emailAdressInput().type(text)
+        this.elements.emailAddressInput().type(text)
     }
     clickSignIn(){
         this.elements.submitButton().click()
@@ -20,13 +20,13 @@ describe('Criar uma conta', () => {
             cy.clearAllLocalStorage()
         });
         const input = {
-            emailAdress: 'email@valido.com',
+            emailAddress: 'email@valido.com',
         }
         it('Dado que o usuário está na página de sign in', () => {
             cy.visit('/')
         });
-        it(`Quando o usuário insere um email já cadastrado "${input.emailAdress}" no campo "Email address" em "Create an account"`, () => {
-            loginForm.typeEmailAdress(input.emailAdress)
+        it(`Quando o usuário insere um email já cadastrado "${input.emailAddress}" no campo "Email address" em "Create an account"`, () => {
+            loginForm.typeEmailAddress(input.emailAddress)
         })
         it(`E clica no botão "Create an account"`, () => {
             loginForm.clickSignIn()
@@ -37,7 +37,7 @@ describe('Criar uma conta', () => {
         it(`E permanece na página de sign in`, () => {
             cy.url().should('include', '/index.php?controller=authentication');
 
-            loginForm.elements.emailAdressInput().should('be.visible');
+            loginForm.elements.emailAddressInput().should('be.visible');
         })
     });
 });

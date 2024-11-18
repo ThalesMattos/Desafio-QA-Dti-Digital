@@ -1,13 +1,13 @@
 class LoginForm{
     elements = {
-        emailAdressInput: () => cy.get('#email'),
+        emailAddressInput: () => cy.get('#email'),
         submitButton: () => cy.contains('button', 'Retrieve Password'),
         authFeedback: () => cy.get('.alert.alert-danger ol li')
     }
 
-    typeEmailAdress(text){
+    typeEmailAddress(text){
         if(!text) return;
-        this.elements.emailAdressInput().type(text)
+        this.elements.emailAddressInput().type(text)
     }
     clickSignIn(){
         this.elements.submitButton().click()
@@ -20,13 +20,13 @@ describe('Esqueceu a senha ?', () => {
             cy.clearAllLocalStorage()
         });
         const input = {
-            emailAdress: 'emailnaocadastrado@exemplo.com',
+            emailAddress: 'emailnaocadastrado@exemplo.com',
         }
         it('Dado que o usuário está na página de Forgot your password?', () => {
             cy.visit('http://www.automationpractice.pl/index.php?controller=password')
         });
-        it(`Quando o usuário insere um email não cadastrado "${input.emailAdress}"`, () => {
-            loginForm.typeEmailAdress(input.emailAdress)
+        it(`Quando o usuário insere um email não cadastrado "${input.emailAddress}"`, () => {
+            loginForm.typeEmailAddress(input.emailAddress)
         })
         it(`E clica no botão "Retrieve Password"`, () => {
             loginForm.clickSignIn()
@@ -37,7 +37,7 @@ describe('Esqueceu a senha ?', () => {
         it(`E permanece na página de recuperação de senha`, () => {
             cy.url().should('include', '/index.php?controller=password');
 
-            loginForm.elements.emailAdressInput().should('be.visible');
+            loginForm.elements.emailAddressInput().should('be.visible');
         })
     });
 });
